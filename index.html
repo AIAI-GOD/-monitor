@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>我的主题监控站</title>
+    <title>全球金价实时监控</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
@@ -21,7 +21,7 @@
                 var prices = data.map(item => item.price);
 
                 myChart.setOption({
-                    title: { text: '数据监控趋势' },
+                    title: { text: '国际金价走势 (美元/盎司)' },
                     tooltip: { trigger: 'axis' },
                     xAxis: { data: times },
                     yAxis: {},
