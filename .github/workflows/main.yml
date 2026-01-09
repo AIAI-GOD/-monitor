@@ -16,7 +16,16 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+- name: 设置 Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
 
+      - name: 安装依赖库
+        run: pip install yfinance  # <--- 增加这一行
+
+      - name: 运行爬虫脚本
+        run: python data_updater.py
       - name: 运行爬虫脚本
         run: python data_updater.py
 
