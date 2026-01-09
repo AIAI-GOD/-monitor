@@ -2,8 +2,8 @@ name: Auto Update Data
 
 on:
   schedule:
-    - cron: '0 9 * * *' # 北京时间 17:00 运行
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 9 * * *' 
+  workflow_dispatch:      
 
 jobs:
   build:
@@ -28,5 +28,5 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add data.csv
-          git commit -m "自动更新数据: $(date)" || exit 0
+          git commit -m "自动更新金价数据" || exit 0
           git push
