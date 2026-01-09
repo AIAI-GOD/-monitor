@@ -1,0 +1,29 @@
+name: Auto Update Data
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # 每天 UTC 时间 9:00 (北京时间 17:00) 运行一次
+  workflow_dispatch:      # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+
+      - name: 设置 Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: 运行爬虫脚本
+        run: python data_updater.py
+
+      - name: 提交并推送变化
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add data.csv
+          git commit -m "自动更新数据: $(date)" || exit 0
+          git push
