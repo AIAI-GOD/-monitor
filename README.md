@@ -1,1 +1,1 @@
-# -monitor
+# -gold price monitor
